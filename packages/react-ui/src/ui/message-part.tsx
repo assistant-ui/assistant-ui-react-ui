@@ -1,7 +1,7 @@
 "use client";
 
 import { FC } from "react";
-import { ContentPartPrimitive } from "@assistant-ui/react";
+import { MessagePartPrimitive } from "@assistant-ui/react";
 import { INTERNAL } from "@assistant-ui/react";
 import classNames from "classnames";
 
@@ -10,7 +10,7 @@ const { useSmoothStatus, withSmoothContextProvider } = INTERNAL;
 export const Text: FC = () => {
   const status = useSmoothStatus();
   return (
-    <ContentPartPrimitive.Text
+    <MessagePartPrimitive.Text
       className={classNames(
         "aui-text",
         status.type === "running" && "aui-text-running",

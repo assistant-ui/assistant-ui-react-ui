@@ -59,8 +59,8 @@
     }
   },
   "devDependencies": {
-    "@assistant-ui/react": "^0.8.17",
-    "@assistant-ui/react-markdown": "^0.2.15",
+    "@assistant-ui/react": "^0.11.3",
+    "@assistant-ui/react-markdown": "^0.11.0",
     "@assistant-ui/tailwindcss-transformer": "workspace:*",
     "@assistant-ui/tsbuildutils": "workspace:^",
     "@assistant-ui/tsconfig": "workspace:*",

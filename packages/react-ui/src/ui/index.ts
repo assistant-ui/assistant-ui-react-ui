@@ -20,7 +20,7 @@ export { default as BranchPicker } from "./branch-picker";
 
 export { default as Composer } from "./composer";
 
-export { default as ContentPart } from "./content-part";
+export { default as MessagePart } from "./message-part";
 
 export {
   default as AttachmentUI, // TODO name collision with Attachment

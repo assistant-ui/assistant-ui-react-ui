@@ -12,9 +12,9 @@ import {
 import { AvatarProps } from "./base/avatar";
 import {
   AssistantRuntime,
-  EmptyContentPartComponent,
-  TextContentPartComponent,
-  ToolCallContentPartProps,
+  EmptyMessagePartComponent,
+  TextMessagePartComponent,
+  ToolCallMessagePartProps,
   AssistantRuntimeProvider,
   AssistantToolUI,
   useAssistantRuntime,
@@ -42,9 +42,9 @@ export type AssistantMessageConfig = {
   allowFeedbackNegative?: boolean | undefined;
   components?:
     | {
-        Text?: TextContentPartComponent | undefined;
-        Empty?: EmptyContentPartComponent | undefined;
-        ToolFallback?: ComponentType<ToolCallContentPartProps> | undefined;
+        Text?: TextMessagePartComponent | undefined;
+        Empty?: EmptyMessagePartComponent | undefined;
+        ToolFallback?: ComponentType<ToolCallMessagePartProps> | undefined;
         Footer?: ComponentType | undefined;
       }
     | undefined;

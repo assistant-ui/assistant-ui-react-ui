@@ -4,7 +4,7 @@ import { MessagePrimitive } from "@assistant-ui/react";
 import BranchPicker from "./branch-picker";
 import { withDefaults } from "./utils/withDefaults";
 import UserActionBar from "./user-action-bar";
-import ContentPart from "./content-part";
+import MessagePart from "./message-part";
 import Attachment from "./attachment-ui";
 
 const UserMessage: FC = () => {
@@ -48,7 +48,7 @@ const UserMessageContent = forwardRef<
       <MessagePrimitive.Content
         components={{
           ...components,
-          Text: components?.Text ?? ContentPart.Text,
+          Text: components?.Text ?? MessagePart.Text,
         }}
       />
     </UserMessageContentWrapper>

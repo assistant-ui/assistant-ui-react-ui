@@ -7,7 +7,7 @@ import { Avatar } from "./base/avatar";
 import { withDefaults } from "./utils/withDefaults";
 import { useThreadConfig } from "./thread-config";
 import AssistantActionBar from "./assistant-action-bar";
-import ContentPart from "./content-part";
+import MessagePart from "./message-part";
 
 const AssistantMessage: FC = () => {
   return (
@@ -72,7 +72,7 @@ const AssistantMessageContent = forwardRef<
       <MessagePrimitive.Content
         components={{
           ...componentsProp,
-          Text: componentsProp?.Text ?? components.Text ?? ContentPart.Text,
+          Text: componentsProp?.Text ?? components.Text ?? MessagePart.Text,
           Empty: componentsProp?.Empty ?? components.Empty,
           tools: toolsComponents,
         }}
