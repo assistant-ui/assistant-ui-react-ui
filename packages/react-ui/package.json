@@ -80,10 +80,10 @@
   "homepage": "https://www.assistant-ui.com/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/assistant-ui/assistant-ui/tree/main/packages/react-ui"
+    "url": "https://github.com/assistant-ui/assistant-ui-react-ui"
   },
   "bugs": {
-    "url": "https://github.com/assistant-ui/assistant-ui/issues"
+    "url": "https://github.com/assistant-ui/assistant-ui-react-ui/issues"
   },
   "engines": {
     "node": ">=20.10.0"
