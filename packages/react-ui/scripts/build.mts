@@ -10,6 +10,6 @@ await Build.start()
       "src/styles/themes/default.css",
       "src/styles/themes/shadcn-extras.css",
     ],
-    cssEntrypoints: ["src/styles/index.css", "src/styles/modal.css"],
+    cssEntrypoints: ["src/styles/index.css", "src/styles/markdown.css", "src/styles/modal.css"],
   })
   .transpileTypescript();
