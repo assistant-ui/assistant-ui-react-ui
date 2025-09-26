@@ -34,6 +34,14 @@ export type UserMessageConfig = {
   allowEdit?: boolean | undefined;
 };
 
+export type AssistantMessageCopyConfig = {
+  icon: {
+    copy: ComponentType,
+    copied: ComponentType
+  },
+  onCopy?: () => void;
+}
+
 export type AssistantMessageConfig = {
   allowReload?: boolean | undefined;
   allowCopy?: boolean | undefined;
@@ -48,6 +56,7 @@ export type AssistantMessageConfig = {
         Footer?: ComponentType | undefined;
       }
     | undefined;
+  copy?: AssistantMessageCopyConfig | undefined;
 };
 
 export type BranchPickerConfig = {
