@@ -99,23 +99,29 @@ namespace AssistantActionBarCopy {
 const AssistantActionBarCopy = forwardRef<
   AssistantActionBarCopy.Element,
   AssistantActionBarCopy.Props
->(({ copiedDuration, ...props }, ref) => {
+>(({ copiedDuration, onClick: copyAction, ...props }, ref) => {
   const {
+    assistantMessage: { copy: { icon: { Check = CheckIcon, Copy = CheckIcon } = {}, onCopy } = {} } = {},
     strings: {
       assistantMessage: { copy: { tooltip = "Copy" } = {} } = {},
     } = {},
   } = useThreadConfig();
 
+  const handleClick = e => {
+    copyAction();
+    onCopy?.();
+  }
+
   return (
     <ActionBarPrimitive.Copy copiedDuration={copiedDuration} asChild>
-      <TooltipIconButton tooltip={tooltip} {...props} ref={ref}>
+      <TooltipIconButton tooltip={tooltip} {...props} onClick={handleClick} ref={ref}>
         {props.children ?? (
           <>
             <MessagePrimitive.If copied>
-              <CheckIcon />
+              <Check />
             </MessagePrimitive.If>
             <MessagePrimitive.If copied={false}>
-              <CopyIcon />
+              <Copy />
             </MessagePrimitive.If>
           </>
         )}
