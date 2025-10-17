@@ -1,5 +1,11 @@
 # @assistant-ui/react-ui
 
+## 0.2.1
+
+### Patch Changes
+
+- feat: export markdown.css
+
 ## 0.2.0
 
 ### Minor Changes
@@ -7,13 +13,11 @@
 - feat: Upgrade to support @assistant-ui/react v0.11
 
   BREAKING CHANGES:
-
   - Renamed `ContentPart` export to `MessagePart`
   - Updated all internal references from ContentPart to MessagePart
   - Updated type imports to use new MessagePart naming convention
 
   Updates:
-
   - Updated @assistant-ui/react dependency to v0.11.3
   - Updated @assistant-ui/react-markdown dependency to v0.11.0
   - Migrated all components to use the new MessagePart API
