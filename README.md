@@ -1,3 +1,7 @@
+> [!WARNING]
+> This repo is not actively maintained, these are legacy components and are not up to date. Use our [registry components](https://github.com/assistant-ui/assistant-ui/tree/main/apps/registry/components/assistant-ui) instead.
+
+
 # @assistant-ui/react-ui
 
 Pre-styled React components for [@assistant-ui/react](https://github.com/assistant-ui/assistant-ui).
