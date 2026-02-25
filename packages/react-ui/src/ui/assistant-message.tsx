@@ -39,7 +39,7 @@ const AssistantMessageContentWrapper = withDefaults("div", {
 
 namespace AssistantMessageContent {
   export type Element = HTMLDivElement;
-  export type Props = MessagePrimitive.Content.Props &
+  export type Props = MessagePrimitive.Parts.Props &
     ComponentPropsWithoutRef<"div">;
 }
 
@@ -69,13 +69,15 @@ const AssistantMessageContent = forwardRef<
 
   return (
     <AssistantMessageContentWrapper {...rest} ref={ref}>
-      <MessagePrimitive.Content
-        components={{
-          ...componentsProp,
-          Text: componentsProp?.Text ?? components.Text ?? MessagePart.Text,
-          Empty: componentsProp?.Empty ?? components.Empty,
-          tools: toolsComponents,
-        }}
+      <MessagePrimitive.Parts
+        components={
+          {
+            ...componentsProp,
+            Text: componentsProp?.Text ?? components.Text ?? MessagePart.Text,
+            Empty: componentsProp?.Empty ?? components.Empty,
+            tools: toolsComponents,
+          } as MessagePrimitive.Parts.Props["components"]
+        }
       />
       {Footer && <Footer />}
     </AssistantMessageContentWrapper>

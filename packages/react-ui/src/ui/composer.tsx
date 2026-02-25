@@ -1,6 +1,12 @@
 "use client";
 
-import { ComponentPropsWithoutRef, forwardRef, type FC } from "react";
+import {
+  ComponentPropsWithoutRef,
+  ForwardRefExoticComponent,
+  RefAttributes,
+  forwardRef,
+  type FC,
+} from "react";
 
 import { PaperclipIcon, SendHorizontalIcon } from "lucide-react";
 import { withDefaults } from "./utils/withDefaults";
@@ -10,13 +16,15 @@ import { CircleStopIcon } from "./base/CircleStopIcon";
 import {
   ComposerPrimitive,
   ThreadPrimitive,
-  useThread,
+  useAuiState,
 } from "@assistant-ui/react";
 import Attachment from "./attachment-ui";
 
 const useAllowAttachments = (ensureCapability = false) => {
   const { composer: { allowAttachments = true } = {} } = useThreadConfig();
-  const attachmentsSupported = useThread((t) => t.capabilities.attachments);
+  const attachmentsSupported = useAuiState(
+    (s) => s.thread.capabilities.attachments,
+  );
   return allowAttachments && (!ensureCapability || attachmentsSupported);
 };
 
@@ -40,7 +48,9 @@ const ComposerRoot = withDefaults(ComposerPrimitive.Root, {
 
 ComposerRoot.displayName = "ComposerRoot";
 
-const ComposerInputStyled = withDefaults(ComposerPrimitive.Input, {
+const ComposerInputStyled: ForwardRefExoticComponent<
+  Partial<ComposerPrimitive.Input.Props> & RefAttributes<HTMLTextAreaElement>
+> = withDefaults(ComposerPrimitive.Input, {
   rows: 1,
   autoFocus: true,
   className: "aui-composer-input",
@@ -124,7 +134,7 @@ const ComposerAddAttachment = forwardRef<
 ComposerAddAttachment.displayName = "ComposerAddAttachment";
 
 const useAllowCancel = () => {
-  const cancelSupported = useThread((t) => t.capabilities.cancel);
+  const cancelSupported = useAuiState((s) => s.thread.capabilities.cancel);
   return cancelSupported;
 };
 

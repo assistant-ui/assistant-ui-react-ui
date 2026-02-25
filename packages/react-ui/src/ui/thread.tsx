@@ -16,7 +16,7 @@ import {
   ThreadConfigProviderProps,
   useThreadConfig,
 } from "./thread-config";
-import { ThreadPrimitive, useThread } from "@assistant-ui/react";
+import { ThreadPrimitive, useAuiState } from "@assistant-ui/react";
 
 const Thread: FC<ThreadConfig> = (config) => {
   const {
@@ -112,7 +112,7 @@ const ThreadMessages: FC<{
 ThreadMessages.displayName = "ThreadMessages";
 
 const ThreadFollowupSuggestions: FC = () => {
-  const suggestions = useThread((t) => t.suggestions);
+  const suggestions = useAuiState((s) => s.thread.suggestions);
 
   return (
     <ThreadPrimitive.If empty={false} running={false}>

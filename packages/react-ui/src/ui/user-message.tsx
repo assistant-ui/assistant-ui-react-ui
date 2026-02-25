@@ -35,7 +35,7 @@ const UserMessageContentWrapper = withDefaults("div", {
 
 namespace UserMessageContent {
   export type Element = HTMLDivElement;
-  export type Props = MessagePrimitive.Content.Props &
+  export type Props = MessagePrimitive.Parts.Props &
     ComponentPropsWithoutRef<"div">;
 }
 
@@ -45,7 +45,7 @@ const UserMessageContent = forwardRef<
 >(({ components, ...props }, ref) => {
   return (
     <UserMessageContentWrapper {...props} ref={ref}>
-      <MessagePrimitive.Content
+      <MessagePrimitive.Parts
         components={{
           ...components,
           Text: components?.Text ?? MessagePart.Text,

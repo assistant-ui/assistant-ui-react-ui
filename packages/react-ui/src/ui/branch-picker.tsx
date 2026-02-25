@@ -6,11 +6,11 @@ import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 import { TooltipIconButton } from "./base/tooltip-icon-button";
 import { withDefaults } from "./utils/withDefaults";
 import { useThreadConfig } from "./thread-config";
-import { BranchPickerPrimitive, useThread } from "@assistant-ui/react";
+import { BranchPickerPrimitive, useAuiState } from "@assistant-ui/react";
 
 const useAllowBranchPicker = (ensureCapability = false) => {
   const { branchPicker: { allowBranchPicker = true } = {} } = useThreadConfig();
-  const branchPickerSupported = useThread((t) => t.capabilities.edit);
+  const branchPickerSupported = useAuiState((s) => s.thread.capabilities.edit);
   return allowBranchPicker && (!ensureCapability || branchPickerSupported);
 };
 

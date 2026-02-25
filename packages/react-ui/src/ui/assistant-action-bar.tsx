@@ -13,7 +13,7 @@ import {
 import {
   ActionBarPrimitive,
   MessagePrimitive,
-  useThread,
+  useAuiState,
 } from "@assistant-ui/react";
 import { TooltipIconButton } from "./base/tooltip-icon-button";
 import { withDefaults } from "./utils/withDefaults";
@@ -21,33 +21,33 @@ import { useThreadConfig } from "./thread-config";
 
 const useAllowCopy = (ensureCapability = false) => {
   const { assistantMessage: { allowCopy = true } = {} } = useThreadConfig();
-  const copySupported = useThread((t) => t.capabilities.unstable_copy);
+  const copySupported = useAuiState((s) => s.thread.capabilities.unstable_copy);
   return allowCopy && (!ensureCapability || copySupported);
 };
 
 const useAllowSpeak = (ensureCapability = false) => {
   const { assistantMessage: { allowSpeak = true } = {} } = useThreadConfig();
-  const speechSupported = useThread((t) => t.capabilities.speech);
+  const speechSupported = useAuiState((s) => s.thread.capabilities.speech);
   return allowSpeak && (!ensureCapability || speechSupported);
 };
 
 const useAllowReload = (ensureCapability = false) => {
   const { assistantMessage: { allowReload = true } = {} } = useThreadConfig();
-  const reloadSupported = useThread((t) => t.capabilities.reload);
+  const reloadSupported = useAuiState((s) => s.thread.capabilities.reload);
   return allowReload && (!ensureCapability || reloadSupported);
 };
 
 const useAllowFeedbackPositive = (ensureCapability = false) => {
   const { assistantMessage: { allowFeedbackPositive = true } = {} } =
     useThreadConfig();
-  const feedbackSupported = useThread((t) => t.capabilities.feedback);
+  const feedbackSupported = useAuiState((s) => s.thread.capabilities.feedback);
   return allowFeedbackPositive && (!ensureCapability || feedbackSupported);
 };
 
 const useAllowFeedbackNegative = (ensureCapability = false) => {
   const { assistantMessage: { allowFeedbackNegative = true } = {} } =
     useThreadConfig();
-  const feedbackSupported = useThread((t) => t.capabilities.feedback);
+  const feedbackSupported = useAuiState((s) => s.thread.capabilities.feedback);
   return allowFeedbackNegative && (!ensureCapability || feedbackSupported);
 };
 

@@ -1,6 +1,11 @@
 "use client";
 
-import { forwardRef, type FC } from "react";
+import {
+  ForwardRefExoticComponent,
+  RefAttributes,
+  forwardRef,
+  type FC,
+} from "react";
 
 import { Button, ButtonProps } from "./base/button";
 import { withDefaults } from "./utils/withDefaults";
@@ -28,7 +33,9 @@ const EditComposerRoot = withDefaults(ComposerPrimitive.Root, {
 
 EditComposerRoot.displayName = "EditComposerRoot";
 
-const EditComposerInput = withDefaults(ComposerPrimitive.Input, {
+const EditComposerInput: ForwardRefExoticComponent<
+  Partial<ComposerPrimitive.Input.Props> & RefAttributes<HTMLTextAreaElement>
+> = withDefaults(ComposerPrimitive.Input, {
   className: "aui-edit-composer-input",
 });
 

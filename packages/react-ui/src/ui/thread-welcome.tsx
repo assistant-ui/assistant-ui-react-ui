@@ -4,7 +4,7 @@ import { ComponentPropsWithoutRef, forwardRef, type FC } from "react";
 import { withDefaults } from "./utils/withDefaults";
 import { Avatar } from "./base/avatar";
 import { SuggestionConfig, useThreadConfig } from "./thread-config";
-import { ThreadPrimitive, useThread } from "@assistant-ui/react";
+import { ThreadPrimitive, useAuiState } from "@assistant-ui/react";
 
 const ThreadWelcome: FC = () => {
   return (
@@ -109,7 +109,7 @@ const ThreadWelcomeSuggestion: FC<ThreadWelcomeSuggestion.Props> = ({
 };
 
 const ThreadWelcomeSuggestions: FC = () => {
-  const suggestions2 = useThread((t) => t.suggestions);
+  const suggestions2 = useAuiState((s) => s.thread.suggestions);
   const { welcome: { suggestions } = {} } = useThreadConfig();
 
   const finalSuggestions = suggestions2.length ? suggestions2 : suggestions;

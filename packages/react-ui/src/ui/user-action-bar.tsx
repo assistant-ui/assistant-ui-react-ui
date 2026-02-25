@@ -6,11 +6,11 @@ import { PencilIcon } from "lucide-react";
 import { TooltipIconButton } from "./base/tooltip-icon-button";
 import { withDefaults } from "./utils/withDefaults";
 import { useThreadConfig } from "./thread-config";
-import { useThread, ActionBarPrimitive } from "@assistant-ui/react";
+import { useAuiState, ActionBarPrimitive } from "@assistant-ui/react";
 
 const useAllowEdit = (ensureCapability = false) => {
   const { userMessage: { allowEdit = true } = {} } = useThreadConfig();
-  const editSupported = useThread((t) => t.capabilities.edit);
+  const editSupported = useAuiState((s) => s.thread.capabilities.edit);
   return allowEdit && (!ensureCapability || editSupported);
 };
 

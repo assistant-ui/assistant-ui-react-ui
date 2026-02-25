@@ -1,6 +1,11 @@
 "use client";
 
-import { type FC, forwardRef } from "react";
+import {
+  type FC,
+  type ForwardRefExoticComponent,
+  type RefAttributes,
+  forwardRef,
+} from "react";
 import { BotIcon, ChevronDownIcon } from "lucide-react";
 
 import { AssistantModalPrimitive } from "@assistant-ui/react";
@@ -65,7 +70,9 @@ const AssistantModalTrigger = forwardRef<
 
 AssistantModalTrigger.displayName = "AssistantModalTrigger";
 
-const AssistantModalAnchor = withDefaults(AssistantModalPrimitive.Anchor, {
+const AssistantModalAnchor: ForwardRefExoticComponent<
+  Partial<AssistantModalPrimitive.Anchor.Props> & RefAttributes<HTMLDivElement>
+> = withDefaults(AssistantModalPrimitive.Anchor, {
   className: "aui-root aui-modal-anchor",
 });
 
@@ -127,14 +134,22 @@ const AssistantModalButton = forwardRef<
 
 AssistantModalButton.displayName = "AssistantModalButton";
 
-const AssistantModalContent = withDefaults(AssistantModalPrimitive.Content, {
+const AssistantModalContent: ForwardRefExoticComponent<
+  Partial<AssistantModalPrimitive.Content.Props> & RefAttributes<HTMLDivElement>
+> = withDefaults(AssistantModalPrimitive.Content, {
   className: "aui-root aui-modal-content",
   sideOffset: 16,
 });
 
 AssistantModalContent.displayName = "AssistantModalContent";
 
-const exports = {
+const exports: {
+  Root: typeof AssistantModalRoot;
+  Trigger: typeof AssistantModalTrigger;
+  Content: typeof AssistantModalContent;
+  Button: typeof AssistantModalButton;
+  Anchor: typeof AssistantModalAnchor;
+} = {
   Root: AssistantModalRoot,
   Trigger: AssistantModalTrigger,
   Content: AssistantModalContent,
